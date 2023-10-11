@@ -86,6 +86,9 @@
   		<delete></delete>
   		사용 가능한 속성도 조금씩 다름
   	 -->
+  	 
+  	 
+  	<!-- 로그인 -->
   	<select id="login" parameterType="Member" resultMap="member_rm">
   		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PW,
 			MEMBER_TEL, MEMBER_ADDR, PROFILE_IMG, AUTHORITY,
@@ -94,5 +97,20 @@
 		WHERE MEMBER_DEL_FL = 'N'
 		AND MEMBER_EMAIL = #{memberEmail}
 	</select>
+	
+	
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="Member">
+		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL
+				, #{memberEmail}
+				, #{memberPw}
+				, #{memberNickname}
+				, #{memberTel}
+				, #{memberAddress}
+				, NULL, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+	
+	
   
 </mapper>

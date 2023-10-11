@@ -279,26 +279,26 @@ memberNickname.addEventListener("input", ()=>{
 
     if(regEx.test(memberNickname.value)){// 유효
 
-        /* fetch() API를 이용한 ajax(비동기 통신) : 닉네임 중복검사 */
-        // url : /dupCheck/nickname
-		fetch("/dupCheck/nickname?nickname=" + memberNickname.value)
-		.then(resp => resp.text())
-		.then(count => {
-			//count : 중복되면 1, 중복 아니면 0
-			if(count == 0) {
-			 	nickMessage.innerText = "사용 가능한 닉네임입니다.";
-        		nickMessage.classList.add("confirm"); // .confirm 스타일 적용
-        		nickMessage.classList.remove("error"); // .error 스타일 제거
-        		checkObj.memberNickname = true;
-			}else {
-				nickMessage.innerText = "이미 사용중인 닉네임입니다.";
-        		nickMessage.classList.add("error"); // .error 스타일 적용
-        		nickMessage.classList.remove("confirm"); // .confirm 스타일 제거
-        		checkObj.memberNickname = false;
-			}	
-		
-		})
-		.catch(err => console.log(err));
+        fetch("/dupCheck/nickname?nickname="+memberNickname.value)
+        .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
+        .then(count => {
+
+            if(count == 0){ // 중복 아닌 경우
+                nickMessage.innerText = "사용 가능한 닉네임 입니다";
+                nickMessage.classList.add("confirm");
+                nickMessage.classList.remove("error");
+                checkObj.memberNickname = true;
+                
+            }else{ // 중복인 경우
+                nickMessage.innerText = "이미 사용중인 닉네임 입니다";
+                nickMessage.classList.add("error");
+                nickMessage.classList.remove("confirm");
+                checkObj.memberNickname = false;
+            }
+        })
+        .catch(err => console.log(err));
+
+        
 
 
     } else{ // 무효
@@ -309,7 +309,6 @@ memberNickname.addEventListener("input", ()=>{
     }
 
 });
-
 
 
 // 전화번호 유효성 검사
@@ -362,7 +361,6 @@ let tempEmail;
 
 sendAuthKeyBtn.addEventListener("click", function(){
 
-	console.log("test")
     authMin = 4;
     authSec = 59;
 

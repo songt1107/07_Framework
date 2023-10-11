@@ -10,4 +10,10 @@ public class MemberServiceImpl2 implements MemberService{
 		return null;
 	}
 
+	@Override
+	public int signUp(Member inputMember) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

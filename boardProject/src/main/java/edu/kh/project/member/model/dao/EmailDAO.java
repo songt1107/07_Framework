@@ -13,13 +13,14 @@ public class EmailDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public int updateAuthKey(Map<String, String> map) {
-		
 		return sqlSession.update("emailMapper.updateAuthKey", map);
 	}
 
 	public int insertAuthKey(Map<String, String> map) {
-		
-		return sqlSession.insert("emailMapper.insertAuthKey", map); // update도 가능
+		return sqlSession.insert("emailMapper.insertAuthKey", map);
 	}
 	
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("emailMapper.checkAuthKey", paramMap);
+	}
 }

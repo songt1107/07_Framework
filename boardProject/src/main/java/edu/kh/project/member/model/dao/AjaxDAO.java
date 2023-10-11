@@ -34,7 +34,7 @@ public class AjaxDAO {
 	// 닉네임 중복검사
 	public int checkNickname(String nickname) {
 		
-		return sqlSession.selectOne("ajaxMapper.checkNickname",nickname);
+		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
 	}
 	
 }
