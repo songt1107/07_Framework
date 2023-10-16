@@ -109,13 +109,22 @@
             			<article class="login-area">
             				
             				<a href="/myPage/profile">
-            					<img src="/resources/images/user.png" id="memberProfile">
+            					
+            					<c:if test="${empty loginMember.profileImage}" >
+                                    <img src="/resources/images/user.png" id="memberProfile">
+                                </c:if>
+
+                                <%-- 프로필 이미지가 있으면 있는 이미지 --%>
+                                <c:if test="${not empty loginMember.profileImage}" >
+                                    <img src="${loginMember.profileImage}" id="memberProfile">
+                                </c:if>
+            					
             				</a>
             				
             				<div class="my-info">
             					<div>
             						<a href="/myPage/info" id="nickname">${sessionScope.loginMember.memberNickname}</a>
-            						<a href="/member/Logout" id="logoutBtn">로그아웃</a>
+            						<a href="/member/logout" id="logoutBtn">로그아웃</a>
             					</div>
             					
             					<p></p>

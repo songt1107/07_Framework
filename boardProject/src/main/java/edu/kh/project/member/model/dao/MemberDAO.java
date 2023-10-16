@@ -33,8 +33,9 @@ public class MemberDAO {
 		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
-	
-	
+
+
+ 
 	/** 회원가입 DAO
 	 * @param inputMember
 	 * @return result
@@ -43,6 +44,20 @@ public class MemberDAO {
 		
 		return sqlSession.insert("memberMapper.signUp", inputMember);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

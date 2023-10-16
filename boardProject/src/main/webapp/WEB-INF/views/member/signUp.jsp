@@ -119,8 +119,9 @@
 
     <%-- footer.jsp include --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 	    function sample6_execDaumPostcode() {
 	        new daum.Postcode({
@@ -147,7 +148,12 @@
 	        }).open();
 	    }
 	</script>
-	
+    
+    
+    
+    
+    
+
 
     <script src="/resources/js/member/signUp.js"></script>
 </body>
