@@ -7,4 +7,7 @@ public interface BoardService {
 
 	List<Map<String, Object>> selectBoardTypeList();
 
+	
+	Map<String, Object> selectBoardList(int boardCode, int cp);
+
 }

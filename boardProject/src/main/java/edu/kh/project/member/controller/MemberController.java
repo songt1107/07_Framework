@@ -86,7 +86,7 @@ public class MemberController {
 		//   매개변수명이 같으면 @RequestParam 생략 가능! ** 
 		
 		
-		// @RequestParam(value="name", required="fasle", defaultValue="1")
+		// @RequestParam(value="name", required="false", defaultValue="1")
 		// [속성]
 		// value : 전달 받은 input 태그의 name 속성값
 		
