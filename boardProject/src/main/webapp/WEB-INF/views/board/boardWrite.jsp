@@ -10,6 +10,8 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +24,8 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-        <form action="/board2/${boardCode}/insert" method="POST" class="board-write" id="boardWriteFrm">  
+        <form action="/board2/${boardCode}/insert" method="POST" class="board-write" id="boardWriteFrm"
+        			enctype="multipart/form-data">  
             <h1 class="board-name">${boardName}</h1>
 
             <!-- 제목 -->

@@ -24,12 +24,19 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-        
+		<c:if test="${not empty param.key}">
+			<c:set var="kq" value="&key=${param.key}&query=${param.query}" />
+		</c:if>
+		
+		
         <section class="board-list">
 
             <h1 class="board-name">${boardName}</h1>
 
-
+			<c:if test="${not empty param.query}">
+				<h3 style="margin:30px">"${param.query}" 검색 결과</h3>
+			</c:if>			
+			
             <div class="list-wrapper">
                 <table class="list-table">
                     
@@ -48,27 +55,28 @@
                     	<c:choose>
                     		<%-- 조회된 게시글 목록이 비어있거나 null 경우 --%>
                     		<c:when test="${empty boardList}">
-                    		<!-- 게시글 목록 조회 결과가 없다면 -->
-		                        <tr>
-		                        	<th colspan="6">게시글이 존재하지 않습니다.</th>
-		                        </tr>
+                    			<!-- 게시글 목록 조회 결과가 비어있다면 -->
+		                         <tr>
+		                             <th colspan="6">게시글이 존재하지 않습니다.</th>
+		                         </tr>
                     		</c:when>
                     		
                     		<c:otherwise>
+                    		
                     			<c:forEach items="${boardList}" var="board">
                     				<!-- 게시글 목록 조회 결과가 있다면 -->
-			                        <tr>
+                        			<tr>
 			                            <td>${board.boardNo}</td>
 			                            <td> 
 			                            
 			                            	<%-- 썸네일이 있을 경우 --%>
 			                            	<c:if test="${not empty board.thumbnail}">
-			                            		<img class="list-thumbnail" src="${board.thumbnail}">
+				                                <img class="list-thumbnail" src="${board.thumbnail}">
 			                            	</c:if>
-			                                
-			                                <%-- ${boardCode} : @Pathvatiable 로 request scope에 추가된 값 --%>
+			
+											<%-- ${boardCode} : @Pathvariable 로 request scope에 추가된 값 --%>
 			                                <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
-			                                [${board.commentCount}]
+			                                [${board.commentCount}]                        
 			                            </td>
 			                            <td>${board.memberNickname}</td>
 			                            <td>${board.boardCreateDate}</td>
@@ -77,9 +85,11 @@
 			                        </tr>
 			                        
                     			</c:forEach>
+                    			
                     		</c:otherwise>
                     	</c:choose>
-                    	
+                    
+						
                     </tbody>
                 </table>
             </div>
@@ -88,7 +98,9 @@
             <div class="btn-area">
 
 				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
-                <button id="insertBtn">글쓰기</button>                     
+				<c:if test="${not empty loginMember}">
+	                <button id="insertBtn">글쓰기</button>                     
+				</c:if>
 
             </div>
 
@@ -99,10 +111,10 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=1">&lt;&lt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=1${kq}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${kq}">&lt;</a></li>
 
 					
                     <!-- 특정 페이지로 이동 -->
@@ -115,24 +127,23 @@
                     		
                     		<%-- 현재 페이지를 제외한 나머지 --%>
                     		<c:otherwise>
-                    			<li><a href="/board/${boardCode}?cp=${i}">${i}</a></li>
+                    			<li><a href="/board/${boardCode}?cp=${i}${kq}">${i}</a></li>
                     		</c:otherwise>
                     	</c:choose>
                     </c:forEach>
                     
-                    
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}${kq}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${kq}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
 
 
 			<!-- 검색창 -->
-            <form action="#" method="get" id="boardSearch">
+            <form action="${boardCode}" method="get" id="boardSearch">
 
                 <select name="key" id="searchKey">
                     <option value="t">제목</option>
@@ -158,6 +169,10 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-
+    
+ 	<script src="/resources/js/board/boardList.js"></script>
+    
+    
+    
 </body>
 </html>
