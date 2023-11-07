@@ -11,11 +11,7 @@
 
 	<meta charset="UTF-8">
 
-	<title>테스트</title>
-
-	<link rel="stylesheet" href="/resources/css/main-style.css">
-
-	<script src="https://kit.fontawesome.com/e5fede6c09.js" crossorigin="anonymous"></script>
+	<title>회원 정보 조회</title>
 
 </head>
 
@@ -23,11 +19,11 @@
 
 	<main>
 
-        <h1>회원 정보 조회(아이디 검색)</h1>
+        <h1>회원 정보 조회(회원 번호 검색)</h1>
 
 		<form action="/selectUser">
 		
-			<input type="text" name="userId" placeholder="회원 아이디 입력">
+			<input type="text" name="userNo" placeholder="회원 번호 입력">
 			
 			<button>조회</button>
 		

@@ -9,9 +9,6 @@
 	<meta charset="UTF-8">
 	<title>성공</title>
 	
-	<link rel="stylesheet" href="/resources/css/main-style.css">
-	
-	<script src="https://kit.fontawesome.com/e5fede6c09.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<main>

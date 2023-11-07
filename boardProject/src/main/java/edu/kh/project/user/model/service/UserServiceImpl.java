@@ -15,8 +15,8 @@ public class UserServiceImpl implements UserService { // implements 입력
 	private UserDAO dao;
 
 	@Override
-	public List<User> selectUser(String userId) {
-		return dao.selectUser(userId); // dao 호출
+	public List<User> selectUser(String userNo) {
+		return dao.selectUser(userNo); // dao 호출
 	}
 
 }

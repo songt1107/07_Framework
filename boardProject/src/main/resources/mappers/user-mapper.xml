@@ -16,7 +16,7 @@
 	
   	<select id="selectUser" resultMap="user_rm">
   		SELECT * FROM TB_USER
-		WHERE USER_ID LIKE '%${userId}%'
+		WHERE USER_NO = #{userNo}
   	</select>
   	
   
