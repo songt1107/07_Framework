@@ -6,6 +6,7 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>로그인 테스트</title>
 </head>
@@ -21,6 +22,26 @@ pageEncoding="UTF-8"%>
 		<label> PWD : </label> <input type="password" name="memberPwd"> <br>
 		
 		<button>로그인</button>
+=======
+
+	<meta charset="UTF-8">
+
+	<title>회원 정보 조회</title>
+
+</head>
+
+<body>
+
+	<main>
+
+        <h1>회원 정보 조회(회원 번호 검색)</h1>
+
+		<form action="/selectUser">
+		
+			<input type="text" name="userNo" placeholder="회원 번호 입력">
+			
+			<button>조회</button>
+>>>>>>> c74b07839f05036bdd7fab7fe482154d429721b5
 		
 		</form>
 		

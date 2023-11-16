@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import edu.kh.project.user.model.service.UserService;
 import edu.kh.project.user.model.vo.User;
 
@@ -20,10 +17,10 @@ public class UserController {
 	
 	
 	@GetMapping("/selectUser")
-	public String selectUser(String userId, Model model) { // model 추가
+	public String selectUser(String userNo, Model model) { // model 추가
 		
-		// 회원 정보 아이디로 검색
-		List<User> userList = service.selectUser(userId); // List 서비스 설정
+		// 회원 정보 번호로 검색
+		List<User> userList = service.selectUser(userNo); // List 서비스 설정
 		
 		if( !userList.isEmpty() ) { // 유저리스트가 존재하면
 			

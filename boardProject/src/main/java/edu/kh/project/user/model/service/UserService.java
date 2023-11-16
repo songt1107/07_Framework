@@ -6,6 +6,6 @@ import edu.kh.project.user.model.vo.User;
 
 public interface UserService {
 
-	List<User> selectUser(String userId); // 서비스 객체화
+	List<User> selectUser(String userNo); // 서비스 객체화
 
 }
