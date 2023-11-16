@@ -138,7 +138,7 @@ public class MemberController {
 	
 	/* 찐 로그인 메서드*/
 	
-	@PostMapping("/login2")
+	@PostMapping("/login")
 	public String login(Member inputMember, Model model,
 						@RequestHeader("referer") String referer,
 						RedirectAttributes ra,

@@ -51,18 +51,7 @@
             	<button id="btn2">조회</button>
             	<ul id="result2">
             	</ul>
-            	
-            	<h3>회원 정보 조회(아이디 검색)</h1>
-
-				<form action="/selectUser">
-				
-					<input type="text" name="userId" placeholder="회원 아이디 입력">
-					
-					<button>조회</button>
-				
-				</form>
-				    
- 				    	           
+            	  	           
             </section>
 
             <!-- 아이디/비밀번호/로그인버튼 영역-->

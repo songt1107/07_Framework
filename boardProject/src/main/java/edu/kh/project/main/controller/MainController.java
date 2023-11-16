@@ -35,6 +35,6 @@ public class MainController {
 		// prefix, suffix 부분을 제외하고 작성!
 		// -> prefix + 리턴값 + suffix 로 경로 완성
 		// ** View Resolver ** 
-		return "common/index";
+		return "common/main";
 	}
 }
