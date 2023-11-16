@@ -46,7 +46,7 @@ public class MemberController {
 	// @RequestMapping("요청주소") -> GET / POST 구분 X , 주소만 맞으면 연결하지만 GET요청시 사용
 	// @RequestMapping(value="/login", method=RequestMethod.GET/POST) -> GET/POST 방식을 구분
 	
-	//@RequestMapping(value="/login", method=RequestMethod.POST)
+	// @RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(HttpServletRequest req) {
 		
 		// 파라미터 전달 방법 1 : HttpServletRequest를 이용하는 방법
@@ -72,7 +72,7 @@ public class MemberController {
 	
 	// @PostMapping : @RequestMapping 자식으로 
 	//				Post 방식 요청을 연결하는 어노테이션
-	//@PostMapping("/login")
+	// @PostMapping("/login")
 	public String login(/*@RequestParam("inputEmail")*/ String inputEmail, 
 						/*@RequestParam("inputPw")*/ String inputPw) {
 		
@@ -93,7 +93,7 @@ public class MemberController {
 		// required : 입력된 name 속성값 파라미터 필수 여부 지정(기본값 true)
 		// -> required = true인 파라미터가 존재하지 않는다면 400 Bad Request 에러 발생
 		// -> required = true인 파라미터가 null인 경우에도 400 Bad Request
-
+		
 		// defaultValue : 파라미터 중 일치하는 name 속성 값이 없을 경우에 대입할 값 지정.
 		// -> required = false인 경우 사용
 		
@@ -138,7 +138,7 @@ public class MemberController {
 	
 	/* 찐 로그인 메서드*/
 	
-	@PostMapping("/login")
+	@PostMapping("/login2")
 	public String login(Member inputMember, Model model,
 						@RequestHeader("referer") String referer,
 						RedirectAttributes ra,

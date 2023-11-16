@@ -61,8 +61,8 @@
 					<button>조회</button>
 				
 				</form>
-            	
-            
+				    
+ 				    	           
             </section>
 
             <!-- 아이디/비밀번호/로그인버튼 영역-->
@@ -89,7 +89,7 @@
 		                            <button>로그인</button>
 		                        </section>
 		                    </fieldset>
-		
+							
 		                    <label>
 		                    
 		                    	<c:if test="${not empty cookie.saveId.value}">

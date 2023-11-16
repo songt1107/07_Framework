@@ -16,33 +16,37 @@
 <body>
 	<main>
             
-            	<h2>회원정보</h2>
+            	<h2>학생정보</h2>
 
 				<table border="1">
 				
 				<tr>
 				
-				<th>회원번호</th>
+				<th>학생번호</th>
 				
-				<th>회원아이디</th>
+				<th>학생이름</th>
 				
-				<th>회원이름</th>
+				<th>국어점수</th>
 				
-				<th>회원나이</th>
+				<th>영어점수</th>
+				
+				<th>수학점수</th>
 				
 				</tr>
 				
-				<c:forEach var="user" items="${userList}">
+				<c:forEach var="student" items="${studentList}">
 				
 				<tr>
 				
-				<th>${user.userNo}</th>
+				<th>${student.studentNumber}</th>
 				
-				<th>${user.userId }</th>
+				<th>${student.studentName }</th>
 				
-				<th>${user.userName }</th>
+				<th>${student.koreanScore}</th>
 				
-				<th>${user.userAge }</th>
+				<th>${student.englishScore}</th>
+
+				<th>${student.mathScore}</th>
 				
 				</tr>
 				

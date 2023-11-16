@@ -14,7 +14,6 @@ public class UserDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	
 	public List<User> selectUser(String userId) {
 		return sqlSession.selectList("userMapper.selectUser", userId); // sql 호출
 	}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="studentMapper">
+
+	<resultMap type="Student" id="student_rm">
+	
+		<id property="studentNo" column="student_number"/>
+		
+		<result property="studentName" column="student_name"/>
+		<result property="koreanScore" column="korean_score"/>
+		<result property="englishScore" column="english_score"/>
+		<result property="mathScore" column="math_score"/>
+		
+		
+	</resultMap>
+	
+	<insert id="createStudent">
+		INSERT INTO student
+		VALUES(SEQ_student_number, '%${inputStudent}%')
+	</insert>	
+	
+  	<select id="readStudent" resultMap="student_rm">
+  		SELECT * FROM student
+		WHERE student_name = #{studentName}
+  	</select>
+  	
+  	<update id="updateStudent">
+  		UPDATE student SETf
+  		WHERE student_name = #{studentName}
+  	</update>
+  	
+  	<delete id="deleteStudent">
+  		DELETE FROM student
+  		WHERE student_name = #{studentName}
+  	</delete>
+  
+</mapper>
